@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+var debug = require('debug')('Cube');
+var app = require('../app');
+var _ = require("underscore");
+
+////// Var multi
+var jsonPlayer = {"player":[]};
+
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+
+  debug('Express server listening on port ' + server.address().port);
+});
+
+
+//Socket IO
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket){
+
+	var color = getRandomColor();
+
+	jsonPlayer.player.push({"id":socket.id,"color":color,"location":{"x":0,"y":0,"z":0}});
+	console.log(jsonPlayer.player);
+
+	socket.emit('PlayerConf',{"playerId":socket.id,"PlayersJSON":jsonPlayer});
+    socket.broadcast.emit('NewPlayer',{"id":socket.id,"color":color});
+
+	socket.on('disconnect', function(idPlayerquit){
+		for(i=0;i<jsonPlayer.player.length;i++)
+		{
+			if(jsonPlayer.player[i].id==socket.id)
+			{
+				socket.broadcast.emit('PlayerQuit',{"id":socket.id});
+				jsonPlayer.player.splice(i,1);
+				break;
+
+			}
+		}
+
+		
+	});
+
+    socket.on('request_CubeMove', function (data) {
+   		socket.broadcast.emit('PlayersMove',data);
+	});
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
