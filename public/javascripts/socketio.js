@@ -1,5 +1,6 @@
 function initSocket(){
 
+	//socket = io('http://92.154.124.59');
 	socket = io('http://localhost');
 	
 	socket.on('connection', function(socket){
