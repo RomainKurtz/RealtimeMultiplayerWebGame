@@ -34,6 +34,7 @@ git clone https://github.com/RomainKurtz/RealtimeMultiplayerWebGame.git Realtime
 cd RealtimeMultiplayerWebGame
 npm start
 ```
+Then go to http://localhost:3000/game.html
 
 Configuration
 --------------
