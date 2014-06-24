@@ -9,7 +9,7 @@ RealtimeMultiplayerWebGame features :
   - controler 2D (right, left, up, down)
   - one controler per player 
 
-  ![alt tag]
+  ![alt tag](https://raw.githubusercontent.com/RomainKurtz/RealtimeMultiplayerWebGame/master/public/images/screen_for_github.jpg)
   
 
 Version
@@ -71,4 +71,3 @@ MIT
 [@mrdoob]:https://twitter.com/mrdoob
 [three.js]:https://github.com/mrdoob/three.js/
 [socket.io]:https://github.com/Automattic/socket.io
-[alt tag] : https://raw.githubusercontent.com/RomainKurtz/RealtimeMultiplayerWebGame/master/public/images/screen_for_github.jpg
