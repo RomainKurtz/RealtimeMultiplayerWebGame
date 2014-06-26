@@ -47,6 +47,10 @@ io.on('connection', function(socket){
    		socket.broadcast.emit('PlayersMove',data);
 	});
 
+	socket.on('playerSendMessage',function (data){
+		socket.broadcast.emit('PlayerMessageRetrieve',data);
+	});
+
 
 
 });

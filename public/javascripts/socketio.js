@@ -1,7 +1,8 @@
 function initSocket(){
 
 	//socket = io('http://92.154.124.59');
-	socket = io('http://localhost');
+	//socket = io('http://localhost');
+	socket = io('http://192.168.1.17');
 	
 	socket.on('connection', function(socket){
 	  console.log('socket connection')
@@ -37,10 +38,18 @@ function initSocket(){
 		initAllPlayers(data);
 		gameReady = 1;
 	});
+	socket.on('PlayerMessageRetrieve', function(data){		
+		popUpMessage(data.message,returnMeshbyId(data.id));
+	});
 	
 
 }
 
 function socket_CubeMove(param){
 		socket.emit('request_CubeMove',param);
+}
+
+function socket_SendMessage(message){
+		socket.emit('playerSendMessage',{'message':message, 'id':thisPlayerId});
+		popUpMessage(message,returnMeshbyId(thisPlayerId));
 }

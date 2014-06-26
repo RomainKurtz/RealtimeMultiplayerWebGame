@@ -20,4 +20,11 @@
 	//Game
 	var gameReady;
 
+
+	//Message
+	
+	var messageReady;
+	var onWritingMessage;
+	//var element;
+		
 }

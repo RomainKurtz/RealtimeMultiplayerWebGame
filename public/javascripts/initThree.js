@@ -1,6 +1,4 @@
 function initThree(){
-
-	initGlobalVar();
 	var zoom = 50;
 
 	scene = new THREE.Scene();
@@ -25,10 +23,12 @@ function initThree(){
 function render() {
 
 	requestAnimationFrame(render);
+	TWEEN.update();
+
 
 	if(gameReady == 1)
 	{
-		moveControlUpdate();
+	moveControlUpdate();
 	}
 	renderer.render(scene, camera);
 }
@@ -43,6 +43,7 @@ function initAllPlayers(data){
 			scene.add(tabPlayer.player[i].instanceInThree);
 			
 		}
+					
 
 }
 
@@ -80,5 +81,16 @@ function addPlayer(data){
 	tabPlayer.player.push({"id":data.id,"color":'012365',"location":{"x":0,"y":0,"z":0},"instanceInThree":new THREE.Mesh(geometry, material)});
 
 	scene.add(tabPlayer.player[tabPlayer.player.length-1].instanceInThree);
+
+}
+
+function returnMeshbyId(id)
+{
+	var i;
+	for (i=0;i<=tabPlayer.player.length;i++){
+			if(tabPlayer.player[i].id==id){
+					return (tabPlayer.player[i].instanceInThree);
+				}
+	}	
 
 }

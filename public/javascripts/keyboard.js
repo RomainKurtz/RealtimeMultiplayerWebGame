@@ -51,6 +51,8 @@ var Key = {
   UP: 38,
   RIGHT: 39,
   DOWN: 40,
+  ENTER : 13,
+
   
   isDown: function(keyCode) {
     return this._pressed[keyCode];
@@ -58,9 +60,17 @@ var Key = {
   
   onKeydown: function(event) {
     this._pressed[event.keyCode] = true;
+   
+    if(event.keyCode==13)
+    {
+        playerMessage();
+
+    }
   },
   
   onKeyup: function(event) {
     delete this._pressed[event.keyCode];
   }
 };
+
+
