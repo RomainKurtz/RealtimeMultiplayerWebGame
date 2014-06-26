@@ -67,7 +67,7 @@ function createTextAreaMessage(mesh){
 
 				textArea	= document.createElement('div')
 				document.body.appendChild(textArea)
-				textArea.innerHTML = "<input type=\"text\" class=\"form-control\" id= \"textAreaMessage\" placeholder=\"type your message\">";
+				textArea.innerHTML = "<input type=\"text\" class=\"form-control\" id= \"textAreaMessage\" placeholder=\"Type your message\">";
 				//textArea.innerHTML = "<center>COUOUC !!!</center>";
 				textArea.style.border	= '0'
 				textArea.style.height	= '142px';

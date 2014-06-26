@@ -1,8 +1,8 @@
 function initSocket(){
 
 	//socket = io('http://92.154.124.59');
-	//socket = io('http://localhost');
-	socket = io('http://192.168.1.17');
+	socket = io('http://localhost');
+	//socket = io('http://192.168.1.17');
 	
 	socket.on('connection', function(socket){
 	  console.log('socket connection')

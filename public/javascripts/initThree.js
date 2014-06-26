@@ -37,7 +37,7 @@ function render() {
 
 function initAllPlayers(data){
 	tabPlayer=data.PlayersJSON;
-	geometry = new THREE.CubeGeometry(1,1,1);
+	geometry = new THREE.BoxGeometry(1,1,1);
 		for (var i=0;i<tabPlayer.player.length;i++){
 			tabPlayer.player[i]["instanceInThree"] =  new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:data.PlayersJSON.player[i].color}));
 			scene.add(tabPlayer.player[i].instanceInThree);
@@ -50,32 +50,20 @@ function initAllPlayers(data){
 
 
 function moveOtherPlayers(data){
-	var i;
-		for (i=0;i<=tabPlayer.player.length;i++){
-			if(tabPlayer.player[i].id==data.id){
-				tabPlayer.player[i].instanceInThree.position=data.location;
-				break;		
-			}
-		}			
-	
+	returnMeshbyId(data.id).position=data.location;
 }
+
 
 
 
 function deletePlayer(data){
-	var i;
-	for (i=0;i<=tabPlayer.player.length;i++){
-			if(tabPlayer.player[i].id==data.id){
-					scene.remove(tabPlayer.player[i].instanceInThree)
-					tabPlayer.player.splice(i,1);
-					break;		
-				}
-	}				
+	scene.remove(returnMeshbyId(data.id))  // Remove player mesh in three
+	tabPlayer.player.splice(returnIndexbyId(data.id),1); // Remove player in tabPlayer
 }
 
 
 function addPlayer(data){
-	geometry = new THREE.CubeGeometry(1,1,1);
+	geometry = new THREE.BoxGeometry(1,1,1);
 	material = new THREE.MeshBasicMaterial({color: data.color});
 
 	tabPlayer.player.push({"id":data.id,"color":'012365',"location":{"x":0,"y":0,"z":0},"instanceInThree":new THREE.Mesh(geometry, material)});
@@ -84,12 +72,27 @@ function addPlayer(data){
 
 }
 
+
+
+
+
 function returnMeshbyId(id)
 {
 	var i;
 	for (i=0;i<=tabPlayer.player.length;i++){
 			if(tabPlayer.player[i].id==id){
 					return (tabPlayer.player[i].instanceInThree);
+				}
+	}	
+
+}
+
+function returnIndexbyId(id)
+{
+	var i;
+	for (i=0;i<=tabPlayer.player.length;i++){
+			if(tabPlayer.player[i].id==id){
+					return (i);
 				}
 	}	
 
