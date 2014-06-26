@@ -5,7 +5,7 @@ RealtimeMultiplayerWebGame is a web application architecture project for start q
 
 RealtimeMultiplayerWebGame features :
   - can support 3000+ clients (depends of the server)
-  - player can control a cube
+  - player can control a square
   - controler 2D (right, left, up, down)
   - one controler per player 
   - chat
@@ -21,7 +21,8 @@ Version
 
 Usage
 --------------
-Shortcut :
+Shortcuts :
+  - [←	↑	→  ↓] to move your square
   - [Enter] to type a message 
 
 Tech
