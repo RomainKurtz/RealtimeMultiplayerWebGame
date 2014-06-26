@@ -19,6 +19,11 @@ Version
 
 0.0.1
 
+Usage
+--------------
+Shortcut :
+  - [Enter] to type a message 
+
 Tech
 -----------
 
