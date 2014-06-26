@@ -8,6 +8,7 @@ RealtimeMultiplayerWebGame features :
   - player can control a cube
   - controler 2D (right, left, up, down)
   - one controler per player 
+  - chat
 
 
   ![alt tag](https://raw.githubusercontent.com/RomainKurtz/RealtimeMultiplayerWebGame/master/public/images/screen_for_github.jpg)
@@ -47,7 +48,6 @@ Upcoming features
 --------------
   - colision
   - pseudo
-  - chat
   - customizable color
 
 License
