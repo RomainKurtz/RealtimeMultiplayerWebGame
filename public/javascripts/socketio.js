@@ -1,9 +1,9 @@
 function initSocket(){
 
 	//socket = io('http://92.154.124.59');
-	//socket = io('http://localhost');
+	socket = io('http://localhost');
 	//socket = io('http://192.168.1.17');
-	socket = io('http://intense-headland-9387.herokuapp.com');
+	//socket = io('http://intense-headland-9387.herokuapp.com');
 	
 	socket.on('connection', function(socket){
 	  console.log('socket connection')
