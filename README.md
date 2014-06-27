@@ -3,6 +3,9 @@ RealtimeMultiplayerWebGame
 
 RealtimeMultiplayerWebGame is a web application architecture project for start quickly a realtime HTML5 game.
 
+You can try this app here : http://romainkurtz.github.io/RealtimeMultiplayerWebGame/ 
+(issues : server as host by Heroku, high latancy noticed specialy for moves and disconnections).
+
 RealtimeMultiplayerWebGame features :
   - can support 3000+ clients (depends of the server)
   - player can control a square
