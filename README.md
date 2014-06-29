@@ -55,7 +55,7 @@ Soon :)
 
 Upcoming features
 --------------
-  - colision
+  - collision
   - pseudo
   - customizable color
 
