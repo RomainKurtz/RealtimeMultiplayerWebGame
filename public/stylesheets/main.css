@@ -3,3 +3,60 @@ html, body {
   height: 100%;
   margin: 0px;
 }
+
+
+
+.message{
+     color:#ccc;
+     text-shadow:0 -1px 0 black;          
+}
+.message:hover,.message:focus{
+     background:rgba(0,0,0,.4);
+     box-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+
+.message span{
+    position:absolute;   
+    margin-top:23px;
+    margin-left:-35px;
+    color:#09c;
+    background:rgba(0,0,0,.9);
+    padding:15px;
+    border-radius:3px;
+    box-shadow:0 0 2px rgba(0,0,0,.5);    
+    -webkit-transform:scale(1) rotate(-12deg);
+	-ms-transform:rotate(-12deg); /* IE 9 */
+    transition:all .25s;
+    opacity:1;      
+
+
+}
+
+.message:hover span, .message:focus span, .message:active span{
+
+    -webkit-transform:scale(1) rotate(0);
+	-ms-transform:scale(1) rotate(0); /* IE 9 */
+        opacity:1;   
+}
+
+.toto {
+
+
+    position:absolute;   
+    margin-top:-100px;
+    
+    color:#09c;
+    background:rgba(0,0,0,.9);
+    padding:15px;
+    border-radius:3px;
+    box-shadow:0 0 2px rgba(0,0,0,.5);  
+    text-align : center;
+
+   
+    opacity:0;
+     -webkit-transform:scale(0) rotate(-12deg);
+	-ms-transform:rotate(-12deg); /* IE 9 */      
+
+    -webkit-transition:  .25s; /* For Safari 3.1 to 6.0 */
+    transition: .25s;
+}
