@@ -23,7 +23,6 @@ function initSocket(){
 		sendPlayerPosition();
 		addPlayer(data);
 	});
-
 	socket.on('PlayerQuit', function(data){
 		console.log('Player quit')
 		deletePlayer(data);
@@ -41,9 +40,7 @@ function initSocket(){
 	});
 	socket.on('PlayerMessageRetrieve', function(data){		
 		popUpMessage(data.message,returnMeshbyId(data.id));
-	});
-	
-
+	});	
 }
 
 function socket_CubeMove(param){

@@ -1,8 +1,6 @@
 function initThree(){
 	var zoom = 50;
-
 	scene = new THREE.Scene();
-
 	//camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 	camera = new THREE.OrthographicCamera(  (window.innerWidth / - 2)/zoom,  (window.innerWidth / 2)/zoom, (window.innerHeight / 2)/zoom, (window.innerHeight / - 2)/zoom, 0.1, 1000 );
 
@@ -11,7 +9,6 @@ function initThree(){
 	else
 		renderer = new THREE.CanvasRenderer();
 
-		
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
 
@@ -24,11 +21,9 @@ function render() {
 
 	requestAnimationFrame(render);
 	TWEEN.update();
-
-
 	if(gameReady == 1)
 	{
-	moveControlUpdate();
+		moveControlUpdate();
 	}
 	renderer.render(scene, camera);
 }
@@ -43,8 +38,6 @@ function initAllPlayers(data){
 			scene.add(tabPlayer.player[i].instanceInThree);
 			
 		}
-					
-
 }
 
 
@@ -65,11 +58,8 @@ function deletePlayer(data){
 function addPlayer(data){
 	geometry = new THREE.BoxGeometry(1,1,1);
 	material = new THREE.MeshBasicMaterial({color: data.color});
-
-	tabPlayer.player.push({"id":data.id,"color":'012365',"location":{"x":0,"y":0,"z":0},"instanceInThree":new THREE.Mesh(geometry, material)});
-
+	tabPlayer.player.push({"id":data.id,"color":data.color ,"location":{"x":0,"y":0,"z":0},"instanceInThree":new THREE.Mesh(geometry, material)});
 	scene.add(tabPlayer.player[tabPlayer.player.length-1].instanceInThree);
-
 }
 
 
@@ -78,13 +68,11 @@ function addPlayer(data){
 
 function returnMeshbyId(id)
 {
-	var i;
-	for (i=0;i<=tabPlayer.player.length;i++){
-			if(tabPlayer.player[i].id==id){
-					return (tabPlayer.player[i].instanceInThree);
-				}
+	for (var i=0;i<=tabPlayer.player.length;i++){
+		if(tabPlayer.player[i].id==id){
+			return (tabPlayer.player[i].instanceInThree);
+		}
 	}	
-
 }
 
 function returnIndexbyId(id)
